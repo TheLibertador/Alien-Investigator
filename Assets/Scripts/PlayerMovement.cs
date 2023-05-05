@@ -15,8 +15,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask jumpableGround;
 
 
-    [Header("ModernHuman")] [SerializeField]
-    private float sprintCooldown = 0;
+    [Header("ModernHuman")] 
+    private bool canSprint;
+    [SerializeField] private float sprintCooldown = 0;
     
     private void Start()
     {
@@ -75,5 +76,9 @@ public class PlayerMovement : MonoBehaviour
     private void StartSprintCooldown()
     {
         sprintCooldown -= Time.deltaTime;
+        if (sprintCooldown <= 0)
+        {
+            canSprint = true;
+        }
     }
 }
