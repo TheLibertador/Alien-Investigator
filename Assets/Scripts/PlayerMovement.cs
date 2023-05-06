@@ -80,11 +80,14 @@ public class PlayerMovement : MonoBehaviour
             isTree = true;
         }
     }
-
-    private void OnTriggerExit(Collider other)
+    
+    private void OnTriggerExit2D(Collider2D other)
     {
-        isTree = false;
-        rb.gravityScale = 1f;
+        if (other.CompareTag("Tree"))
+        {
+            isTree = false;
+            rb.gravityScale = 1f;
+        }
     }
 
     private void Move(float moveSpeed)
