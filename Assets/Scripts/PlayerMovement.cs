@@ -14,11 +14,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private LayerMask jumpableGround;
 
+    private float sprintCooldown = 0;
+    private bool isSprinting = false;
+    private float sprintTime = 5f;
 
-    [Header("ModernHuman")] 
-    private bool canSprint;
-    [SerializeField] private float sprintCooldown = 0;
-    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
-    
+
     private void Update()
     {
         Move(moveSpeed);
@@ -36,16 +35,28 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.K))
             {
-                if (sprintCooldown == 0)
+                if (sprintCooldown <= 0 && !isSprinting)
                 {
-                    StartCoroutine(Sprint());
-                    StartSprintCooldown();
+                    StartSprinting();
                 }
             }
         }
-        
+
+        if (sprintCooldown > 0)
+        {
+            sprintCooldown -= Time.deltaTime;
+        }
+
+        if (isSprinting)
+        {
+            sprintTime -= Time.deltaTime;
+            if (sprintTime <= 0)
+            {
+                StopSprinting();
+            }
+        }
     }
-    
+
     private void Move(float moveSpeed)
     {
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rb.velocity.y);
@@ -58,27 +69,23 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
-    
+
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
 
-
-    private IEnumerator Sprint()
+    private void StartSprinting()
     {
+        isSprinting = true;
         moveSpeed *= 2;
-        yield return new WaitForSeconds(5f);
-        moveSpeed /= 2;
-        sprintCooldown = 10;
+        sprintTime = 5f;
     }
 
-    private void StartSprintCooldown()
+    private void StopSprinting()
     {
-        sprintCooldown -= Time.deltaTime;
-        if (sprintCooldown <= 0)
-        {
-            canSprint = true;
-        }
+        isSprinting = false;
+        moveSpeed /= 2;
+        sprintCooldown = 10f;
     }
 }
