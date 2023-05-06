@@ -6,6 +6,7 @@ public class Throw : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject kayaPrefab;
+    public float KayaForce;
 
     void Update()
     {
@@ -17,7 +18,9 @@ public class Throw : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(kayaPrefab, firePoint.position, firePoint.rotation);
+        GameObject kaya = Instantiate(kayaPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb = kaya.GetComponent<Rigidbody2D>();
+        rb.AddForce(firePoint.forward * KayaForce);
     }
     
     
