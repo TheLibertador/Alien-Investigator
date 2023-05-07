@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 397887740}
   m_Layer: 0
   m_Name: Square (2)
-  m_TagString: Level1Finish
+  m_TagString: LevelFinish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1392,6 +1392,7 @@ GameObject:
   - component: {fileID: 1756093701}
   - component: {fileID: 1756093703}
   - component: {fileID: 1756093704}
+  - component: {fileID: 1756093705}
   m_Layer: 0
   m_Name: Player
   m_TagString: CaveHuman
@@ -1567,6 +1568,18 @@ MonoBehaviour:
   jumpableGround:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &1756093705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756093697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d6d3f93058bfd4da19c63fb75293a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1838461454
 GameObject:
   m_ObjectHideFlags: 0

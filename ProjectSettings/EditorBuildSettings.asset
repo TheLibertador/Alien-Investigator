@@ -6,6 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/FishScene.unity
+    guid: c10921abb53182b4b868d53b4980b25e
+  - enabled: 1
+    path: Assets/Levels/PoorFishLevel.unity
+    guid: 8b616855204f7447f8fc1668cd7bea4d
+  - enabled: 1
+    path: Assets/Levels/CavemanScene.unity
+    guid: 76e760f84b3aa544b836a12aed845cde
+  - enabled: 1
+    path: Assets/Levels/CavemanLevel.unity
+    guid: cfe735ae0b3a54544ae500fb3b9ff7c0
+  - enabled: 1
+    path: Assets/Levels/ModernHumanScene.unity
+    guid: c37138e82817e484f9ce948e8083ec6b
+  - enabled: 1
+    path: Assets/Levels/ModernHumanLevel.unity
+    guid: f70359e08b7e24c7aaa78b499b1afe82
+  - enabled: 1
+    path: Assets/Levels/FuturisticHuman.unity
+    guid: 87d3f557777bcf24e8c3a649bc193080
+  - enabled: 1
+    path: Assets/Levels/FuturisticHumanLevel.unity
+    guid: 976a2b40d27de457e9425fc4eae0ec60
   m_configObjects: {}

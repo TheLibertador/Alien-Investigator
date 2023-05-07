@@ -15,6 +15,7 @@ TagManager:
   - Level1Finish
   - Level2Finish
   - Level3Finish
+  - LevelFinish
   layers:
   - Default
   - TransparentFX
