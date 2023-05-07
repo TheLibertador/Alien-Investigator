@@ -10,6 +10,8 @@ TagManager:
   - FirstTeleport
   - SecondTeleport
   - Reverse
+  - FxTemporaire
+  - Rock
   layers:
   - Default
   - TransparentFX

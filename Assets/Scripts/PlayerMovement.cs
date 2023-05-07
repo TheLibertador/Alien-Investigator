@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                rb.gravityScale = 4f;
+                rb.gravityScale = 1f;
             }
             
         }
@@ -79,6 +79,10 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Tree"))
         {
             isTree = true;
+        }
+        if (other.CompareTag("Rock"))
+        {
+            Destroy(other.gameObject);
         }
     }
     
@@ -98,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump(float jumpForce)
     {
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
@@ -106,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .2f, jumpableGround);
     }
 
     private void StartSprinting()
