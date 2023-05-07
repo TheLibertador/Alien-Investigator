@@ -12,6 +12,9 @@ TagManager:
   - Reverse
   - FxTemporaire
   - Rock
+  - Level1Finish
+  - Level2Finish
+  - Level3Finish
   layers:
   - Default
   - TransparentFX
